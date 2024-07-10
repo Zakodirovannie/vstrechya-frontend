@@ -15,6 +15,11 @@
   flex-direction: column;
   background: url(../../../assets/1st_background.png) center center / cover no-repeat;
 }
+
+.spacer {
+  height: 110px;
+}
+
 .flex_col {
   position: relative;
   display: flex;

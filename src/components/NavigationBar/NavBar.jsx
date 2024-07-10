@@ -65,7 +65,6 @@ const NavBar = () => {
                 ☰
             </button>
         </header>
-        <div className={styles.header_placeholder}></div>
     </>
 }
 

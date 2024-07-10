@@ -27,6 +27,7 @@ const ExhibitionsList = () => {
     return (
         <main className={styles.main}>
             <section className={styles.section1}>
+                <span className={styles.spacer}></span>
                 <div className={styles.flex_col}>
                     <h1 className={styles.title}>Каталог выставок</h1>
 
