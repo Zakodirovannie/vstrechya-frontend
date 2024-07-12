@@ -26,7 +26,8 @@ export const refreshToken = () => {
 }
 
 export const logout = () => {
-    localStorage.removeItem('access-token')
+    localStorage.removeItem('refresh-token');
+    localStorage.removeItem('access-token');
 }
 
 export const getUser = (id) => {

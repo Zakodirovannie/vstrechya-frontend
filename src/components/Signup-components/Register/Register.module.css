@@ -1,5 +1,5 @@
 .form_container {
-    height: 1080px;
+    min-height: 100vh;
     padding: 20px;
     display: flex;
     flex-direction: column;
@@ -20,7 +20,7 @@
     width: 310px;
     height: auto;
     left: 1130px;
-    top: 315px;
+    top: 215px;
 }
 
 .inputLabel {
@@ -28,7 +28,7 @@
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    font: 400 18px "Montserrat", Helvetica, Arial, serif;
+    font: 400 18px Merriweather, Helvetica, Arial, serif;
     color: rgba(0, 0, 0, 0.66);
     letter-spacing: 1px;
 }
@@ -38,7 +38,7 @@
 }
 
 .title {
-    font: 700 32px "Montserrat", Helvetica, Arial, serif;
+    font: 700 32px Merriweather, Helvetica, Arial, serif;
     color: rgba(0, 0, 0, 1);
 }
 
@@ -48,7 +48,7 @@
     height: 20px;
     border: 1px solid gray;
     padding: 5px;
-    font-family: 'Inter', sans-serif;
+    font-family: Merriweather, sans-serif;
 }
 
 .submit {
@@ -79,18 +79,18 @@
     font-size: 12px;
     color: red;
     align-self: flex-start;
-    margin: auto;
-    margin-top: 10px;
+    margin: 10px auto auto;
 }
 
 .register {
     margin-top: 40px;
-    background: rgba(232, 210, 182, 0.74);
+    background-color: #1e1e1e;
+    color: white;
     border-radius: 10px;
     border: none;
     width: 220px;
     height: 50px;
-    font-family: 'Montserrat', sans-serif;
+    font-family: Merriweather, sans-serif;
     font-style: normal;
     font-weight: 600;
     font-size: 18px;
@@ -107,12 +107,13 @@
     left: 415px;
     position: absolute;
     border-radius: 8px;
-    padding: 0%;
-    background-color: #fdf4e3;
+    padding: 0;
+    background-color: transparent;
     border: none;
     cursor: pointer;
 }
 
 .exit img {
-    margin: 7px;
+    height: 26px;
+    width: 26px;
 }

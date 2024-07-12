@@ -99,6 +99,52 @@ header {
     border-radius: 50px;
 }
 
+.settingsToggle {
+    background-color: transparent;
+    outline: none;
+    border: none;
+}
+
+.settingsToggle img {
+    margin-left: 9px;
+    margin-bottom: 15px;
+}
+
+.settings {
+    position: absolute;
+    right: 44px;
+    top: 100px;
+    width: 180px;
+    height: 154px;
+    background-color: rgba(255, 255, 255, .83);
+    display: flex;
+    flex-direction: column;
+}
+
+.settingsButton {
+    border-radius: 10px;
+    display: flex;
+    border: none;
+    outline: none;
+    background-color: transparent;
+    width: 100%;
+    height: 35px;
+    margin-bottom: 13px;
+    font: 200 18px/1.22 Merriweather, Helvetica, Arial, serif;
+}
+
+.settingsButton:hover {
+    box-shadow: 0 3px 5px 5px rgba(0, 0, 0, 0.2);
+}
+
+.settingsButton img {
+    margin: 6px 12px 6px 10px;
+}
+
+.settingsButton span {
+    margin: 6px auto;
+}
+
 /* Кнопка для открытия меню на маленьких экранах */
 .menu_toggle {
     display: none;
@@ -182,4 +228,8 @@ header {
 /* Показываем меню при активной кнопке */
 .navigation.active {
     display: flex;
+}
+
+.hidden {
+    display: none;
 }

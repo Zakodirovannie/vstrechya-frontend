@@ -14,6 +14,7 @@ import ProfilePage from "./pages/Profile/ProfilePage";
 import ExhibitionCard from "./components/Exhibitions-components/ExhibitionDetails/ExhibitionCard";
 import CreateCollection from "./components/Collections-components/CreateCollection/CreateCollection";
 import CollectionCard from "./components/Collections-components/CollectionCard/CollectionCard";
+import SettingsPage from "./pages/Settings/SettingsPage";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -30,11 +31,13 @@ const router = createBrowserRouter(
         <Route path='/signup' element={<Signup />}></Route>
 
         <Route path='' element = {<PrivateRoute />}>
-          <Route path="/profile" element = {<ProfilePage />}></Route>
-          <Route path="/me/collections" element={<CollectionsPage user={'me'} />} />
-          <Route path='/me/collections/:id' element={<CollectionCard />} />
+            <Route path="/profile" element={<ProfilePage/>}/>
+            <Route path='/settings' element={<SettingsPage/>}/>
 
-          <Route path='/collections/create' element={<CreateCollection />} />
+            <Route path="/me/collections" element={<CollectionsPage user={'me'}/>}/>
+            <Route path='/me/collections/:id' element={<CollectionCard/>}/>
+
+            <Route path='/collections/create' element={<CreateCollection/>}/>
         </Route>
     </Route>
   )

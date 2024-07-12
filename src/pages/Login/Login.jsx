@@ -1,14 +1,12 @@
 import React from "react";
 import styles from './Login.module.css'
 import LoginForm from "../../components/Login-components/Authorization/LoginForm";
-import boldMan from '../../assets/bust_of_man_transparent_background.png'
-import beardedMan from '../../assets/bust_of_bearded_man_transparent_background.png'
+import main_image from '../../assets/main_image.png'
 
 const Auth = () => {
     return <>
         <div className={styles.main}>
-            <img className={styles.image7} src={boldMan} alt='Bold man' />
-            <img className={styles.image8} src={beardedMan} alt='Bearded man' />
+            <img className={styles.image7} src={main_image} alt='Pictures'/>
             <LoginForm className={styles.login_form} />
         </div>
     </>
