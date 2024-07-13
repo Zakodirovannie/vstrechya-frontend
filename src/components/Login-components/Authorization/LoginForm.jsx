@@ -5,6 +5,7 @@ import vkIcon from '../../../assets/vkIcon.png'
 import {login} from "../../../api.auth";
 import {useDispatch} from "react-redux";
 import {setAuth} from "../../../redux/AuthSlice/AuthSlice";
+import {useNavigate} from "react-router-dom";
 import {getCookie} from "../../../cookie";
 
 const LoginForm = () => {
@@ -15,6 +16,7 @@ const LoginForm = () => {
     const [errorMessage, setErrorMessage] = useState('')
     const [accessToken, setAccessToken] = useState(null);
     const dispatch = useDispatch()
+    const navigate = useNavigate()
 
     const handleSubmit = async(evt) => {
         evt.preventDefault()
@@ -24,7 +26,7 @@ const LoginForm = () => {
             setIsError(false)
             setAccessToken(getCookie('access_token'))
             dispatch(setAuth(accessToken !== null))
-            window.location.assign('https://vstrecya.space/')
+            navigate('/profile')
         } catch (e) {
             if (e.response && (e.response.status === 401 || e.response.status === 400)) {
                 setIsError(true);
