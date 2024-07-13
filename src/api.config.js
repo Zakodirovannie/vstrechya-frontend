@@ -1,41 +1,31 @@
 import axios from "axios";
+import {getCookie} from "./cookie";
 
 export const instance = axios.create({
     withCredentials: true,
     baseURL: "https://engine.vstrechya.space/",
 });
 
+// Интерсептор для запросов
+instance.interceptors.request.use(config => {
+    const csrfToken = getCookie('csrftoken');
+    if (csrfToken) {
+        config.headers['X-CSRFToken'] = csrfToken;
+    }
+    return config;
+}, error => {
+    return Promise.reject(error);
+});
 
-instance.interceptors.request.use(
-  (config) => {
-    config.headers.Authorization = `Bearer ${localStorage.getItem("access-token")}`
-    return config
-  }
-)
-
-
-
-// instance.interceptors.response.use(
-//   (config) => {
-//     return config;
-//   },
-//   async (error) => {
-//    const originalRequest = {...error.config};
-//    originalRequest._isRetry = true; 
-//     if (
-//       error.response.status === 401 && 
-//       error.config &&
-//       !error.config._isRetry
-//     ) {
-//       try {
-//         const resp = await instance.get("http://127.0.0.1:8000/auth/signin/");
-//         localStorage.setItem("token", resp.data.token);
-//         console.log(localStorage.getItem('token'))
-//         return instance.request(originalRequest);
-//       } catch (error) {
-//         console.log("AUTH ERROR");
-//       }
-//     }
-//     throw error;
-//   }
-// );
+// Интерсептор для ответов
+instance.interceptors.response.use(response => {
+    return response;
+}, error => {
+    if (error.response && error.response.status === 401) {
+        // Обработка ошибки неавторизованного доступа
+        console.error('Unauthorized access - possibly redirect to login');
+        // Можно, например, редиректить на страницу логина
+        window.location.assign('https://vstrechya.space/login');
+    }
+    return Promise.reject(error);
+});

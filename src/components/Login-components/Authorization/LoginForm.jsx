@@ -6,6 +6,7 @@ import {login} from "../../../api.auth";
 import {useDispatch} from "react-redux";
 import {setAuth} from "../../../redux/AuthSlice/AuthSlice";
 import {useNavigate} from "react-router-dom";
+import {getCookie} from "../../../cookie";
 
 const LoginForm = () => {
     const [email, setEmail] = useState('')
@@ -13,18 +14,21 @@ const LoginForm = () => {
     const [isLogin, setIsLogin] = useState(false)
     const [isError, setIsError] = useState(false)
     const [errorMessage, setErrorMessage] = useState('')
+    const [accessToken, setAccessToken] = useState(null);
+    const [refreshToken, setRefreshToken] = useState(null);
     const dispatch = useDispatch()
     const navigate = useNavigate()
 
     const handleSubmit = async(evt) => {
         evt.preventDefault()
         try {
-            const response = await login(email, password)
+            await login(email, password)
             setIsLogin(true)
             setIsError(false)
-            localStorage.setItem('access-token', response.data.access)
-            localStorage.setItem('refresh-token', response.data.refresh)
-            dispatch(setAuth(localStorage.getItem('access-token')!==null))
+            setAccessToken(getCookie('access_token'))
+            setRefreshToken(getCookie('refresh_token'))
+            dispatch(setAuth(accessToken !== null))
+            console.log(getCookie('access_token'));
             navigate(-1)
         } catch (e) {
             if (e.response && (e.response.status === 401 || e.response.status === 400)) {
@@ -51,7 +55,7 @@ const LoginForm = () => {
                         type="email"
                         name="email"
                         id="email"
-                        className={styles.input} 
+                        className={styles.input}
                         required
                         onChange={e => setEmail(e.target.value)}
                         value={email}
@@ -71,7 +75,7 @@ const LoginForm = () => {
                 </div>
                 <button className={styles.login} type="submit">Войти</button>
                 <a  href="/signup" className={styles.signup}>Регистрация</a>
-                <button className={styles.vkAuth} type="button">
+                <button className={styles.vkAuth} type={"button"}>
                     <img className={styles.vkIcon} src={vkIcon} alt={'VK'}/>
                     <p>Вход через VK</p>
                 </button>
