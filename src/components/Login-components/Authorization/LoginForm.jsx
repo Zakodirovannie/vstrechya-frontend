@@ -21,14 +21,12 @@ const LoginForm = () => {
     const handleSubmit = async(evt) => {
         evt.preventDefault()
         try {
-            const response = await login(email, password)
+            await login(email, password)
             setIsLogin(true)
             setIsError(false)
             setAccessToken(getCookie('access_token'))
             dispatch(setAuth(accessToken !== null))
-            if (response.status === 200) {
-                navigate(-1)
-            }
+            navigate('/profile')
         } catch (e) {
             if (e.response && (e.response.status === 401 || e.response.status === 400)) {
                 setIsError(true);
