@@ -28,8 +28,6 @@ const LoginForm = () => {
             setAccessToken(getCookie('access_token'))
             setRefreshToken(getCookie('refresh_token'))
             dispatch(setAuth(accessToken !== null))
-            console.log(getCookie('access_token'));
-            navigate(-1)
         } catch (e) {
             if (e.response && (e.response.status === 401 || e.response.status === 400)) {
                 setIsError(true);
