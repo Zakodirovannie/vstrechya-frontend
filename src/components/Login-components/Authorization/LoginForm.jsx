@@ -3,10 +3,7 @@ import styles from './LoginForm.module.css'
 import exit from '../../../assets/exit.png'
 import vkIcon from '../../../assets/vkIcon.png'
 import {login} from "../../../api.auth";
-import {useDispatch} from "react-redux";
-import {setAuth} from "../../../redux/AuthSlice/AuthSlice";
 import {useNavigate} from "react-router-dom";
-import {getCookie} from "../../../cookie";
 
 const LoginForm = () => {
     const [email, setEmail] = useState('')
@@ -14,7 +11,7 @@ const LoginForm = () => {
     const [isLogin, setIsLogin] = useState(false)
     const [isError, setIsError] = useState(false)
     const [errorMessage, setErrorMessage] = useState('')
-    const dispatch = useDispatch()
+    // const dispatch = useDispatch()
     const navigate = useNavigate()
 
     const handleSubmit = async(evt) => {
@@ -23,7 +20,7 @@ const LoginForm = () => {
             await login(email, password)
             setIsLogin(true)
             setIsError(false)
-            dispatch(setAuth(getCookie('access_token') !== null))
+            // dispatch(setAuth(getCookie('access_token') !== null))
             navigate('/profile')
         } catch (e) {
             if (e.response && (e.response.status === 401 || e.response.status === 400)) {

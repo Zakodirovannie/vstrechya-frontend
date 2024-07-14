@@ -1,9 +1,10 @@
-import { createSlice } from '@reduxjs/toolkit'
+import {createSlice} from '@reduxjs/toolkit'
+import {getCookie} from "../../cookie";
 
 const authSlice = createSlice({
   name: 'auth',
   initialState: {
-    isAuth: localStorage.getItem('access-token')!==null,
+    isAuth: getCookie('access-token') !== null,
   },
   reducers: {
     setAuth(state, action) {
