@@ -25,7 +25,7 @@ instance.interceptors.response.use(response => {
         // Обработка ошибки неавторизованного доступа
         console.error('Unauthorized access - possibly redirect to login');
         // Можно, например, редиректить на страницу логина
-        window.location.assign('https://vstrechya.space/login');
+        // window.location.assign('https://vstrechya.space/login');
     }
     return Promise.reject(error);
 });
