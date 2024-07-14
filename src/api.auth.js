@@ -29,8 +29,8 @@ export const refreshToken = () => {
 export const logout = () => {
     deleteCookie('sessionId');
     deleteCookie('csrftoken');
-    deleteCookie('access-token');
-    deleteCookie('refresh-token');
+    deleteCookie('access_token');
+    deleteCookie('refresh_token');
 }
 
 export const getUser = (id) => {
