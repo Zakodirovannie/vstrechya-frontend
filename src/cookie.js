@@ -13,7 +13,7 @@ export function getCookie(name) {
     return null;
 }
 
-export function deleteCookie(name, path, domain) {
+export function deleteCookie(name, path = '/', domain = 'vstrechya.space') {
     if (path === undefined) path = '/';
     document.cookie = name + '=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=' + path + ';' + (domain ? ' domain=' + domain + ';' : '');
 }
