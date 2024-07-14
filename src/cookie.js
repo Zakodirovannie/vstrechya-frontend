@@ -1,5 +1,5 @@
 // utils/cookie.js
-export function getCookie(name) {
+export async function getCookie(name) {
     const cookieString = document.cookie;
     const cookies = cookieString.split('; ');
 

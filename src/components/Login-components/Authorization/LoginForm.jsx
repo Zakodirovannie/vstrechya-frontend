@@ -14,7 +14,7 @@ const LoginForm = () => {
     const [isLogin, setIsLogin] = useState(false)
     const [isError, setIsError] = useState(false)
     const [errorMessage, setErrorMessage] = useState('')
-    const [accessToken, setAccessToken] = useState(null);
+    const [accessToken, setAccessToken] = useState('');
     const dispatch = useDispatch()
     const navigate = useNavigate()
 
@@ -24,8 +24,8 @@ const LoginForm = () => {
             await login(email, password)
             setIsLogin(true)
             setIsError(false)
-            setAccessToken(getCookie('access_token'))
-            console.log(accessToken);
+            setAccessToken(await getCookie('access_token'))
+            console.log("Access: ", accessToken);
             dispatch(setAuth(accessToken !== null))
             navigate('/profile')
         } catch (e) {
