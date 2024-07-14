@@ -1,6 +1,6 @@
 import axios from "axios";
 import {instance} from "./api.config.js";
-import {deleteCookie} from "./cookie";
+import {deleteCookie, getCookie} from "./cookie";
 
 export const signup = (last_name, first_name, email, password, re_password) => {
     return axios.post("https://engine.vstrechya.space/auth/signup/", {
@@ -17,8 +17,9 @@ export const login = (email, password) => {
 }
 
 export const refreshToken = () => {
+    const refreshToken = getCookie('refresh_token')
     return instance.post("/auth/api/token/refresh/", {
-        refresh: localStorage.getItem("refresh-token")
+        refresh: refreshToken
     }).then((response) => {
         if (response.status === 401) {
             window.location.assign("/login")
