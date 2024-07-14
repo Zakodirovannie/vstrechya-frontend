@@ -33,7 +33,7 @@ function Profile() {
                         <div className={styles.profileFlexRow}>
                             <div className={styles.profileFlexCol2}>
                                 <div className={styles.profileFlexCol3}>
-                                    <label htmlFor='last_name' className={styles.inputLabel}>Фамилия</label>
+                                    <label htmlFor='last_name' className={styles.inputLabel}>ФИО</label>
                                     <p className={styles.input}>{user.first_name} {user.last_name}</p>
                                     <hr className={styles.profileLine1} size={1}/>
                                 </div>

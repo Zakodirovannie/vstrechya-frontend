@@ -24,8 +24,8 @@ const LoginForm = () => {
             await login(email, password)
             setIsLogin(true)
             setIsError(false)
-            setAccessToken(await getCookie('access_token'))
-            console.log("Access: ", accessToken);
+            setAccessToken(getCookie('access_token'))
+            console.log('12345 ', getCookie('access_token'))
             dispatch(setAuth(accessToken !== null))
             navigate('/profile')
         } catch (e) {
@@ -38,6 +38,7 @@ const LoginForm = () => {
             }
             setIsLogin(false);
         } finally {
+            console.log("Access: ", accessToken);
             setIsLogin(false)
         }
 
