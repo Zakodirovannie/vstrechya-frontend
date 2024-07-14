@@ -25,6 +25,7 @@ const LoginForm = () => {
             setIsLogin(true)
             setIsError(false)
             setAccessToken(getCookie('access_token'))
+            console.log(accessToken);
             dispatch(setAuth(accessToken !== null))
             navigate('/profile')
         } catch (e) {
@@ -72,7 +73,8 @@ const LoginForm = () => {
                 </div>
                 <button className={styles.login} type="submit">Войти</button>
                 <a  href="/signup" className={styles.signup}>Регистрация</a>
-                <button className={styles.vkAuth} type={"button"}>
+                <button className={styles.vkAuth} type={"button"}
+                        onClick={() => window.location.assign('https://engine.vstrechya.space/login/vk-oauth2/')}>
                     <img className={styles.vkIcon} src={vkIcon} alt={'VK'}/>
                     <p>Вход через VK</p>
                 </button>
