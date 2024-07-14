@@ -1,5 +1,6 @@
 import axios from "axios";
 import {instance} from "./api.config.js";
+import {deleteCookie} from "./cookie";
 
 export const signup = (last_name, first_name, email, password, re_password) => {
     return axios.post("https://engine.vstrechya.space/auth/signup/", {
@@ -26,8 +27,10 @@ export const refreshToken = () => {
 }
 
 export const logout = () => {
-    localStorage.removeItem('refresh-token');
-    localStorage.removeItem('access-token');
+    deleteCookie('sessionId');
+    deleteCookie('csrftoken');
+    deleteCookie('access-token');
+    deleteCookie('refresh-token');
 }
 
 export const getUser = (id) => {
