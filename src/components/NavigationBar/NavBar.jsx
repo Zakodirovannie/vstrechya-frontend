@@ -94,7 +94,7 @@ const NavBar = () => {
                     }
                 </ul>
             </nav>
-            <div className={styles.line}></div>
+            {/*<div className={styles.line}></div>*/}
             <button className={styles.menu_toggle} aria-label="Open Navigation Menu" onClick={toggleMenu}>
                 ☰
             </button>
