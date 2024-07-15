@@ -62,7 +62,7 @@ const NavBar = () => {
                         </button>
                     </li>
                     <li>
-                        <button className={styles.navButtons} onClick={() => navigate("/")}>СОЦИАЛЬНЫЕ СЕТИ</button>
+                        <button className={styles.navButtons} onClick={() => navigate("/")}>СООБЩЕНИЯ</button>
                     </li>
                     {isAuth ?
                         <div>

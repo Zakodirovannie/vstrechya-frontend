@@ -2,7 +2,7 @@ import React, {useEffect, useState} from "react";
 import styles from "./Settings.module.scss";
 import image from '../../../assets/profileImg.svg'
 import eye from '../../../assets/showPassword.png'
-import {changeMyPhoto, changeProfileInfo, getMyInfo} from "../../../api.auth";
+import {activation, changeMyPhoto, changeProfileInfo, getMyInfo} from "../../../api.auth";
 import {useDispatch} from "react-redux";
 import {setChange} from '../../../redux/UserSlice/UserSlice'
 
@@ -177,8 +177,8 @@ function Settings() {
                             <button className={styles.navButton}>
                                 Изменить пароль
                             </button>
-                            <button className={styles.navButton}>
-                                Активировать аккаунт
+                            <button className={styles.navButton} onClick={() => activation()}>
+                                Активировать аккаунт (Проверьте почту после нажатия)
                             </button>
                         </div>
                         <button type="submit" className={styles.profileSubmitButton}>

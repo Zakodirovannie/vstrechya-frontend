@@ -23,6 +23,10 @@ export const logout = () => {
     deleteCookie('refresh_token');
 }
 
+export const activation = () => {
+    return instance.post('/auth/send-activation-email/')
+}
+
 export const getUser = (id) => {
     return instance.get(`/users/${id}/`)
 }
